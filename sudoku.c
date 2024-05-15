@@ -59,11 +59,12 @@ List* get_adj_nodes(Node* n){
             Node* adj=copy(n);
             adj->sudo[i][j]=1;
             pushBack(list,adj); 
+             
           }
        }
     }
-   
-    return adj;
+    return list;
+    
    
 }
 
