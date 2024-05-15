@@ -62,9 +62,10 @@ List* get_adj_nodes(Node* n){
             
              
           }
+          pushBack(list,adj); 
        }
     }
-   pushBack(list,adj); 
+   
     return list;
     
    
