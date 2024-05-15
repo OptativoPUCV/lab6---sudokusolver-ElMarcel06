@@ -16,3 +16,13 @@ sudoku.c:55:13: error: unused variable ‘k’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 6457e29
+Wed 15 May 2024 11:21:08 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:59:13: error: expected expression before ‘)’ token
+   59 |          if()
+      |             ^
+Compilation failed
+d3e0282
