@@ -2,3 +2,17 @@ Wed 15 May 2024 11:14:37 PM UTC:
  tests:  0|5
 total_score: 0/70
 c402f82
+Wed 15 May 2024 11:21:00 PM UTC: 
+ sudoku.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:59:13: error: expected expression before ‘)’ token
+   59 |          if()
+      |             ^
+sudoku.c:55:13: error: unused variable ‘k’ [-Werror=unused-variable]
+   55 |     int i,j,k;
+      |             ^
+cc1: all warnings being treated as errors
+Compilation failed
+6457e29
