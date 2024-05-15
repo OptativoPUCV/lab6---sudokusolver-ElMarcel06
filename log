@@ -67,3 +67,17 @@ Wed 15 May 2024 11:42:22 PM UTC:
  tests:  0|5
 total_score: 0/70
 d308585
+Wed 15 May 2024 11:42:38 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+test.c: In function ‘get_adj_nodes’:
+sudoku.c:58:24: error: iteration 9 invokes undefined behavior [-Werror=aggressive-loop-optimizations]
+   58 |           if(n->sudo[i][j]==0){
+      |              ~~~~~~~~~~^~~
+sudoku.c:57:17: note: within this loop
+   57 |        for(j=0;j<=9;j++){
+      |                ~^~~
+cc1: all warnings being treated as errors
+Compilation failed
+109f865
