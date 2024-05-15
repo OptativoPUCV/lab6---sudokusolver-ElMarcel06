@@ -49,24 +49,25 @@ int is_valid(Node* n){
 }
 
 
-List* get_adj_nodes(Node* n){
-    List* list=createList();
-    if(n==NULL) return list;
-    int i,j;
-    for(i=0;i<9;i++){
-       
-       for(j=0;j<9;j++){
-          if(n->sudo[i][j]==2){
-            Node* adj=copy(n);
-            adj->sudo[i][j]=1;
-            pushBack(list,adj); 
-             
-          }
-       }
+List* get_adj_nodes(Node* n) {
+    List* list = createList();
+    if (n == NULL) return list;
+
+    int foundEmptyCell = 0; // Variable para marcar si se encontró una celda vacía
+
+    // Recorre el sudoku buscando la primera celda vacía
+    for (int i = 0; i < 9 && !foundEmptyCell; i++) {
+        for (int j = 0; j < 9 && !foundEmptyCell; j++) {
+            if (n->sudo[i][j] == 0) {
+                Node* adj = copy(n);
+                adj->sudo[i][j] = 1; // Actualiza la primera celda vacía a 1
+                pushBack(list, adj); // Agrega la copia a la lista
+                foundEmptyCell = 1; // Marca que se encontró una celda vacía
+            }
+        }
     }
+
     return list;
-    
-   
 }
 
 
