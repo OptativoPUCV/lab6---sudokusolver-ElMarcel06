@@ -58,7 +58,7 @@ List* get_adj_nodes(Node* n){
        for(j=0;j<9;j++){
           if(n->sudo[i][j]==0   ){
             Node* adj=copy(n);
-            adj->sudo[i][j]=1;
+            adj->sudo[i][j]=2;
             pushBack(list,adj); 
              
           }
@@ -84,7 +84,7 @@ Node* DFS(Node* initial, int* cont){
 }
 
 
-
+/*
 int main( int argc, char *argv[] ){
 
   Node* initial= read_file("s12a.txt");;
@@ -95,4 +95,4 @@ int main( int argc, char *argv[] ){
   print_node(final);
 
   return 0;
-}
+}*/
