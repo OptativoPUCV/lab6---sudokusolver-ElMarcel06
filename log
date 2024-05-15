@@ -118,3 +118,39 @@ sudoku.c:81:1: error: control reaches end of non-void function [-Werror=return-t
 cc1: all warnings being treated as errors
 Compilation failed
 ee3eda9
+Wed 15 May 2024 11:50:06 PM UTC: 
+ sudoku.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:66:12: error: ‘adj’ undeclared (first use in this function)
+   66 |     return adj;
+      |            ^~~
+sudoku.c:66:12: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c: In function ‘is_final’:
+sudoku.c:77:1: error: expected identifier or ‘(’ before ‘}’ token
+   77 | }
+      | ^
+test.c:245:5: error: ‘main’ is normally a non-static function [-Werror=main]
+  245 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:262:1: error: expected declaration or statement at end of input
+  262 | }
+      | ^
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:68:1: error: control reaches end of non-void function [-Werror=return-type]
+   68 | }
+      | ^
+sudoku.c: In function ‘is_final’:
+test.c:263: error: control reaches end of non-void function [-Werror=return-type]
+At top level:
+test.c:245:5: error: ‘main’ defined but not used [-Werror=unused-function]
+  245 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+test.c:7:8: error: ‘_strdup’ defined but not used [-Werror=unused-function]
+    7 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+da54189

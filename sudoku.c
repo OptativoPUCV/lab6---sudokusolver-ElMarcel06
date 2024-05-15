@@ -63,17 +63,13 @@ List* get_adj_nodes(Node* n){
        }
     }
    
-    return list;
+    return adj;
    
 }
 
 
 int is_final(Node* n){
-   while(n!=NULL){
-     if(n->sudo[0][0]!=0) return 1;
-     n=n->List_next(n);
-      
-   }
+   int 
    
    
    
