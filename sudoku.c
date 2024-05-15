@@ -59,10 +59,8 @@ List* get_adj_nodes(Node* n){
             Node* adj=copy(n);
             adj->sudo[i][j]=1;
             pushBack(list,adj); 
-             
           }
        }
-       
     }
    
     return list;
@@ -71,7 +69,15 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-    return 0;
+   while(n!=NULL){
+     if(n->sudo[0][0]!=0) return 1;
+     n=n->List_next(n);
+      
+   }
+   
+   
+   
+    
 }
 
 Node* DFS(Node* initial, int* cont){

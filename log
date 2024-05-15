@@ -104,3 +104,17 @@ Wed 15 May 2024 11:43:51 PM UTC:
  tests:  0|5
 total_score: 0/70
 99ad83f
+Wed 15 May 2024 11:46:24 PM UTC: 
+ sudoku.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_final’:
+sudoku.c:74:9: error: ‘Node’ has no member named ‘List_next’
+   74 |      n=n->List_next(n);
+      |         ^~
+sudoku.c:81:1: error: control reaches end of non-void function [-Werror=return-type]
+   81 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+ee3eda9
