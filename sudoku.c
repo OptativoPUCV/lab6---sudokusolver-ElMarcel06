@@ -94,7 +94,7 @@ List* get_adj_nodes(Node* n){
 int is_final(Node* n){
    while(n!=NULL){
        if(n->sudo[0][0] == 0) return 0;
-       next(n);
+       n = next(n);
       
    }
    
