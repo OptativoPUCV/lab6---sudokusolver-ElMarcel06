@@ -316,3 +316,14 @@ sudoku.c:48:17: error: unused variable ‘l’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 036f98e
+Thu 16 May 2024 12:04:09 AM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:57:29: error: returning ‘Node *’ from a function with return type ‘int’ makes integer from pointer without a cast [-Werror=int-conversion]
+   57 |                      return n;
+      |                             ^
+cc1: all warnings being treated as errors
+Compilation failed
+08f790b
