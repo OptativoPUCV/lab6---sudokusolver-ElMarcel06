@@ -50,13 +50,12 @@ int is_valid(Node* n) {
     while (n != NULL) {
         for (i = 0; i < 9; i++) {
             for (j = 0; j < 9; j++) {
-                if (n->sudo[i][j] != 0) {
-                    for (k = j + 1; k < 9; k++) {
-                        if (n->sudo[i][k] == n->sudo[i][j]) return 0; 
-                    }
-                    for (l = i + 1; l < 9; l++) {
-                        if (n->sudo[l][j] == n->sudo[i][j]) return 0; 
-                    }
+                if (n->sudo[i][j] == 0) continue;
+                for (k = j + 1; k < 9; k++) {
+                    if (n->sudo[i][k] == n->sudo[i][j]) return 0; 
+                }
+                for (l = i + 1; l < 9; l++) {
+                    if (n->sudo[l][j] == n->sudo[i][j]) return 0; 
                 }
             }
         }
@@ -68,30 +67,30 @@ int is_valid(Node* n) {
 
 
 
+List* get_adj_nodes(Node* n) {
+    List* list = createList();
+    if (n == NULL) return list;
 
-List* get_adj_nodes(Node* n){
-    List* list=createList();
-    if(n==NULL) return list;
-    for(int i = 0;i < 9;i++){
-        for(int j = 0;j < 9;j++){
-            if(n->sudo[i][j] == 0){
-                for(int k = 1;k < 10;k++){
-                    Node* new = copy(n);
-                    new->sudo[i][j] = k;
-                    if(is_valid(new)){
-                        pushBack(list,new);
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (n->sudo[i][j] == 0) {
+                for (int k = 1; k <= 9; k++) {
+                    Node* new_node = copy(n);
+                    new_node->sudo[i][j] = k;
+                    if (is_valid(new_node)) {
+                        pushBack(list, new_node);
+                    } else {
+                        free(new_node);
                     }
-                   else{
-                      free(new);
-                   }
                 }
+                return list;
             }
         }
     }
+
     return list;
-    
-   
 }
+
 
 
 int is_final(Node* n){
