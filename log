@@ -327,3 +327,9 @@ sudoku.c:57:29: error: returning ‘Node *’ from a function with return type �
 cc1: all warnings being treated as errors
 Compilation failed
 08f790b
+Thu 16 May 2024 12:06:42 AM UTC: 
+ sudoku.c | 45 ++++++++++++++++++++++++++++++---------------
+ 1 file changed, 30 insertions(+), 15 deletions(-)
+ tests:  5|3
+total_score: 35/70
+beb7f4d

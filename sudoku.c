@@ -43,33 +43,49 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
-   while(n!=NULL){
-      int i,j,k;
-      for(i=0;i<9;i++){
-         for(j=0;j<9;j++){
-            if(n->sudo[i][j]==0){
-               continue;
+int is_valid(Node* n) {
+    if (n == NULL) return 0; // Verifica si el nodo es nulo
+
+    // Verifica filas
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (n->sudo[i][j] == 0) continue;
+            for (int k = j + 1; k < 9; k++) {
+                if (n->sudo[i][k] == n->sudo[i][j]) return 0;
             }
-            for(k=0;k<9;k++){
-               if(k!=j){
-                  if(n->sudo[i][k]==n->sudo[i][j]){
-                     return n;
-                  }
-               }else{
-                  continue;
-               }
-               
+        }
+    }
+
+    // Verifica columnas
+    for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < 9; i++) {
+            if (n->sudo[i][j] == 0) continue;
+            for (int k = i + 1; k < 9; k++) {
+                if (n->sudo[k][j] == n->sudo[i][j]) return 0;
             }
-            
-         }
-         
-      }
-      
-   }
-   
-   return 1;
+        }
+    }
+
+    // Verifica cuadrantes
+    for (int row = 0; row < 9; row += 3) {
+        for (int col = 0; col < 9; col += 3) {
+            for (int i = row; i < row + 3; i++) {
+                for (int j = col; j < col + 3; j++) {
+                    if (n->sudo[i][j] == 0) continue;
+                    for (int k = row; k < row + 3; k++) {
+                        for (int l = col; l < col + 3; l++) {
+                            if (k == i && l == j) continue;
+                            if (n->sudo[k][l] == n->sudo[i][j]) return 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return 1; // Si pasa todas las verificaciones, el Sudoku es válido
 }
+
 
 
 List* get_adj_nodes(Node* n){
