@@ -44,7 +44,7 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n) {
-    if (n == NULL) return 0; // Verifica si el nodo es nulo
+    if (n == NULL) return 0; 
 
     int i, j, k, l;
     while (n != NULL) {
@@ -52,17 +52,17 @@ int is_valid(Node* n) {
             for (j = 0; j < 9; j++) {
                 if (n->sudo[i][j] == 0) continue;
                 for (k = j + 1; k < 9; k++) {
-                    if (n->sudo[i][k] == n->sudo[i][j]) return 0; // Verifica fila
+                    if (n->sudo[i][k] == n->sudo[i][j]) return 0; 
                 }
                 for (l = i + 1; l < 9; l++) {
-                    if (n->sudo[l][j] == n->sudo[i][j]) return 0; // Verifica columna
+                    if (n->sudo[l][j] == n->sudo[i][j]) return 0; 
                 }
             }
         }
-        n = NULL; // Termina el bucle while
+        n = NULL; 
     }
 
-    return 1; // Si pasa todas las verificaciones, el Sudoku es válido
+    return 1; 
 }
 
 
@@ -92,8 +92,11 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
-   
-   return 0;
+   while(n!=NULL){
+       if(n->sudo[0][0] == 0) return 0;
+       next(n);
+      
+   }
    
    
    

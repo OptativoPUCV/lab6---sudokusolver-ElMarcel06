@@ -339,3 +339,24 @@ Thu 16 May 2024 12:06:57 AM UTC:
  tests:  5|3
 total_score: 35/70
 cd932ba
+Thu 16 May 2024 12:08:59 AM UTC: 
+ sudoku.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_final’:
+sudoku.c:97:13: error: passing argument 1 of ‘next’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+   97 |        next(n);
+      |             ^
+      |             |
+      |             Node *
+In file included from test.c:4:
+list.h:17:18: note: expected ‘List *’ but argument is of type ‘Node *’
+   17 | void* next(List* list);
+      |            ~~~~~~^~~~
+In file included from test.c:5:
+sudoku.c:104:1: error: control reaches end of non-void function [-Werror=return-type]
+  104 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+7911c38
